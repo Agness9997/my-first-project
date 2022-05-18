@@ -16,16 +16,15 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug')->unique();
+            //$table->string('slug')->unique();
             $table->text('body');
             $table->unsignedInteger('views')->default(0);
             $table->unsignedInteger('answers')->default(0);
-            $table->unsignedinteger('views')->default(0);
             $table->Integer('votes')->default(0);
             $table->unsignedInteger('best_answer_id')->nullable();
-            $table->unsignedInteger('user_id');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
-            $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade') ;
+            //$table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade') ;
         });
     }
 

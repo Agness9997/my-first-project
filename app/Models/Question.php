@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    //use HasFactory;
+    use HasFactory;
 protected $fillable=['title', 'body'];
 
 public function user(){
-    return$this->belongsTo(User::class);
+    return $this->belongsTo(User::class);
 }
-public function setTitleAttribute($value){
-    $this->attribute['title']=$value;
-    $this->attribute['slug']=str_slug($value);
+public function setTitleAttributes($value){
+    $this->attributes['title']=$value;
+    $this->attributes['slug']=str_slug($value);
 }
 }
